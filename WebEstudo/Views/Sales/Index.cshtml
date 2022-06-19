@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebEstudo.Models.Sale>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-success" role="button" asp-action="Create">Adicionar nova venda</a>
+    </div>
+    <h1 class="display-4">Listagem de Vendas</h1>
+
+    <br /> <br />
+
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(model => model.Id)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Client)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Category)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.NameProduct)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.SaleValue)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.DateOfSale)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Active)</th>
+                <th scope="col">Ações</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@Html.DisplayFor(modelItem => item.Id)</th>
+                    <td>@Html.DisplayFor(modelItem => item.Client.FullName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Category)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NameProduct)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SaleValue)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DateOfSale)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Active)</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a role="button" class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a role="button" class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

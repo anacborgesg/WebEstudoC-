@@ -1,0 +1,25 @@
+﻿@model WebEstudo.Models.Sale
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Deletar venda</h1>
+    <br />
+    <h3>Você tem certeza que deseja apagar esta venda?</h3>
+    <br />
+    <div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <input type="submit" value="Confirmar exclusão" class="btn btn-danger" role="button" asp-action="Delete" />
+            </div>
+            <br />
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a class="btn btn-secondary" role="button" asp-action="Index">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
