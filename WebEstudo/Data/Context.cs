@@ -11,5 +11,6 @@ namespace WebEstudo.Data
         public static IEnumerable<object>? Client { get; internal set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Sale> Sales { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
