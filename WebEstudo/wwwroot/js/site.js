@@ -3,7 +3,13 @@
 
 // Write your JavaScript code.
 $(document).ready(function () {
-    $('#table-clients').DataTable({
+    getDataTable('#table-clients');
+    getDataTable('#table-users');
+
+})
+
+function getDataTable(id) {
+    $(id).DataTable({
         "ordering": true,
         "paging": true,
         "searching": true,
@@ -20,7 +26,7 @@ $(document).ready(function () {
             "sZeroRecords": "Nenhum registro encontrado",
             "sSearch": "Buscar",
             "oPaginate": {
-                "sNext": "Proximo",
+                "sNext": "Próximo",
                 "sPrevious": "Anterior",
                 "sFirst": "Primeiro",
                 "sLast": "Ultimo"
@@ -31,7 +37,9 @@ $(document).ready(function () {
             }
         }
     });
-});
+}
+
+
 
 $('.close-alert').click(function () {
     $('.alert').hide(1000);

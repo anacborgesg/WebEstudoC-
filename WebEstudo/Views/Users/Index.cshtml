@@ -1,12 +1,12 @@
-﻿@model IEnumerable<WebEstudo.Models.Client>
+﻿@model IEnumerable<WebEstudo.Models.User>
 
 @{
-    ViewData["Title"] = "Listagem de clientes";
+    ViewData["Title"] = "Listagem de Usuários";
 }
 <div class="text-center">
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-success" role="button" asp-action="Create">Adicionar novo cliente</a>
+        <a class="btn btn-success" role="button" asp-action="Create">Cadastrar usuário</a>
     </div>
     <br />
 
@@ -26,16 +26,16 @@
     }
     <br />
 
-    <table class="display" id="table-clients">
-    <h1 class="display-4">Lista de Clientes</h1>
+    <table class="display" id="table-users" style="width: 100%">
+    <h1 class="display-4">Lista de Usuários</h1>
 
         <thead style="background-color:#000; color:#fff">
             <tr>
-                <th scope="col">@Html.DisplayNameFor(model => model.Id)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.FullName)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.BirthDate)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.TypeDoc)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.DateRegister)</th>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Perfil</th>
+                <th scope="col">Data de Cadastro</th>
                 <th scope="col">Ações</th>
 
             </tr>
@@ -47,10 +47,10 @@
                 {
                     <tr>
                         <th scope="row">@Html.DisplayFor(modelItem => item.Id)</th>
-                        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
-                        <td>@Html.DisplayFor(modelItem => item.BirthDate)</td>
-                        <td>@Html.DisplayFor(modelItem => item.TypeDoc)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DateRegister)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Perfil)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a role="button" class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
@@ -62,7 +62,7 @@
             }
             else
             {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum cliente encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="5">Nenhum usuário encontrado</td></tr>
             }
         </tbody>
     </table>
